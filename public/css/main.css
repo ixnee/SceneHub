@@ -1,0 +1,9 @@
+body {
+		background: url("../images/noisy_net.png");
+    padding-top: 40px;
+}
+ 
+.form-signup, .form-signin {
+    width: 400px;
+    margin: 0 auto;
+}
