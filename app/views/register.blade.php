@@ -5,9 +5,7 @@ Register
 @stop
 
 @section('content')
-  <article id="mainContent">
     <h1>Sign Up!</h1>
-    <article class="post">
       <h2>New User Registration</h2>
       {{ Form::open(array('url' => 'register' )) }}
 
@@ -32,7 +30,4 @@ Register
   </div>
 
       {{ Form::close() }}
-    </article>
-  </article>
-</div> <!--- end wrapper -->
 @stop

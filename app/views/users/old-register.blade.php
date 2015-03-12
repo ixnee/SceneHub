@@ -1,3 +1,5 @@
+
+
 {{ Form::open(array('url'=>'users/create', 'class'=>'form-signup')) }}
     <h2 class="form-signup-heading">Please Register</h2>
  

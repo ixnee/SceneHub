@@ -27,25 +27,13 @@ Route::get('/login', function()
 Route::post('/login', function()
 {
 	if (Auth::attempt(array('username'=>Input::get('username'), 'password'=>Input::get('password')))) {
-				return Redirect::to('/members')->withFlashMessage('You are now logged in!');
+				return Redirect::to('/')->withFlashMessage('You are now logged in!');
 			} else {
 				return Redirect::to('/login')
 					->withFlashMessage('Incorrect username/password combination. Try again.')
 					->withInput();
 			}
 });
-
-/*
-Route::post('/login', function()
-{
-	$credentials = Input::only('username', 'password');
-	if(Auth::attempt($credentials))
-	{
-		return Redirect::intended('/members');
-	}
-	return Redirect::to('login');
-});
-*/
 
 Route::get('/logout', function()
 {
@@ -80,10 +68,33 @@ Route::get('/admin', array(
 	'before' => 'level',
 	function()
 	{
-		return View::make('pages.admin');
+		$users = User::all();
+		return View::make('pages.admin')->with('users', $users);;
 	}));
 
+Route::get('/users', function()
+{
+    $users = User::all();
 
+    return View::make('users')->with('users', $users);
+});
+
+
+/*
+
+
+
+
+Route::post('/login', function()
+{
+	$credentials = Input::only('username', 'password');
+	if(Auth::attempt($credentials))
+	{
+		return Redirect::intended('/members');
+	}
+	return Redirect::to('login');
+});
+*/
 
 /*
 
