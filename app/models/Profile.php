@@ -1,7 +1,7 @@
 <?php
 
 class Profile extends \Eloquent {
-	protected $fillable = ['first', 'last', 'phone', 'bio', 'birthdate'];
+	protected $fillable = ['role_id', 'first', 'last', 'phone', 'bio', 'birthdate', 'city_id', 'state_id'];
 
 	public function role() {
 		return $this->hasOne('Role');

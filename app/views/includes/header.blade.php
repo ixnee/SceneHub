@@ -15,7 +15,7 @@
                 <li>{{ HTML::link('/register', 'Register') }}</li>   
                 <li>{{ HTML::link('/login', 'Login') }}</li>   
 	            @else
-					      <li {{ Request::is( 'members') ? 'class="active"' : '' }}><a href="/members">Members Area</a></li>
+					      <li {{ Request::is( 'profile') ? 'class="active"' : '' }}><a href="/profile">Your Profile</a></li>
 					      @if ( Auth::user()->level ==2 )
           			<li {{ Request::is( 'admin') ? 'class="active"' : '' }} ><a href="/admin">Admin Panel</a></li>
           			@endif

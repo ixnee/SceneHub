@@ -9,3 +9,6 @@
 <link href="{{ URL::asset('css/styles.css') }}" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<link href="{{ URL::asset('css/bootstrap-datepicker.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ URL::asset('js/bootstrap-datepicker.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/functions.js') }}"></script>

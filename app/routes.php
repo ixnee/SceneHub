@@ -18,6 +18,8 @@ Route::get('/', function()
 
 Route::get('/register', 'RegisterController@showRegister');
 Route::post('/register', 'RegisterController@doRegister');
+Route::get('/create-profile', 'ProfileController@showCreateProfile');
+Route::post('/create-profile', 'ProfileController@doCreateProfile');
 
 Route::get('/login', function()
 {
@@ -56,11 +58,11 @@ Route::get('/groups', function()
 	return View::make('pages.groups');
 });
 
-Route::get('/members', array(
+Route::get('/profile', array(
 	'before' => 'auth',
 	function()
 {
-	return View::make('pages.members');
+	return View::make('pages.profile');
 }
 ));
 
@@ -75,7 +77,6 @@ Route::get('/admin', array(
 Route::get('/users', function()
 {
     $users = User::all();
-
     return View::make('users')->with('users', $users);
 });
 
