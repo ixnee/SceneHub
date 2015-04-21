@@ -18,8 +18,6 @@ Route::get('/', function()
 
 Route::get('/register', 'RegisterController@showRegister');
 Route::post('/register', 'RegisterController@doRegister');
-Route::get('/create-profile', 'ProfileController@showCreateProfile');
-Route::post('/create-profile', 'ProfileController@doCreateProfile');
 
 Route::get('/login', function()
 {
@@ -58,6 +56,7 @@ Route::get('/groups', function()
 	return View::make('pages.groups');
 });
 
+
 Route::get('/profile', array(
 	'before' => 'auth',
 	function()
@@ -66,23 +65,47 @@ Route::get('/profile', array(
 }
 ));
 
+Route::get('/create-profile', array(
+	'before' => 'auth',
+	'uses' => 'ProfileController@showCreateProfile'
+));
+
+Route::post('/create-profile', 'ProfileController@doCreateProfile');
+
+// Route::get('/your-profile', array(
+// 	'before' => 'auth',
+// 	function()
+// 	{
+// 		$user_id = Auth::user()->id;
+// 		$user = User::find($user_id);
+// 		$profile = $user->profile;
+// 		return View::make('pages.your-profile', array('user' => $user, 'profile' => $profile));
+// 	}
+// ));
+
+Route::get('/your-profile', array(
+	'before' => 'auth',
+	'uses' => 'ProfileController@showYourProfile'
+));
+
 Route::get('/admin', array(
 	'before' => 'level',
 	function()
 	{
 		$users = User::all();
-		return View::make('pages.admin')->with('users', $users);;
-	}));
+		return View::make('pages.admin')->with('users', $users);
+	}
+));
+
+/*
+
+
 
 Route::get('/users', function()
 {
     $users = User::all();
     return View::make('users')->with('users', $users);
 });
-
-
-/*
-
 
 
 
@@ -114,6 +137,7 @@ Route::get('/insider', array(
 	return View::make('insider');
 }
 ));
+
 Route::controller('users', 'UsersController');
 
 Route::controller('pages', 'PagesController');

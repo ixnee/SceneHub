@@ -1,7 +1,6 @@
- <div id="push"></div>
-    </div>
+<div id="push"></div>
 <footer class="footer">
 	<div class="container">
-		<p>© Copyright 2014 Lisa Balogh</p>
+		<p>&copy; 2014 Lisa Balogh</p>
 	</div>
 </footer>

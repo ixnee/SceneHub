@@ -1,4 +1,9 @@
 @extends('layouts.default')
+
+@section('title')
+	 | Admin Panel
+@stop
+
 @section('content')
 i am the admin panel
 	<h2>List of Users</h2>

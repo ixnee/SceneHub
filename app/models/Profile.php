@@ -15,5 +15,13 @@ class Profile extends \Eloquent {
 		return $this->hasOne('State');
 	}
 
+	public function user() {
+		return $this->belongsTo('User');
+	}
+
+	public function genres() {
+		return $this->belongsToMany('Genre', 'genre_profile', 'profile_id', 'genre_id');
+	}
+
 }
 

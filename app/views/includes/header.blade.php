@@ -3,7 +3,7 @@
   	<div class="container-fluid">
 			<div class="navbar-header">
 				<h2>Scene Hub</h2>
-				<h3>Music Events In Western North Carolina</h3>
+				<p>Music Events In Western North Carolina</p>
 			</div>
 				<div class="collapse navbar-collapse">
 			    <ul class="nav navbar-nav">
@@ -15,22 +15,16 @@
                 <li>{{ HTML::link('/register', 'Register') }}</li>   
                 <li>{{ HTML::link('/login', 'Login') }}</li>   
 	            @else
-					      <li {{ Request::is( 'profile') ? 'class="active"' : '' }}><a href="/profile">Your Profile</a></li>
+					      <li {{ Request::is( 'your-profile') ? 'class="active"' : '' }}><a href="/your-profile">Your Profile</a></li>
 					      @if ( Auth::user()->level ==2 )
           			<li {{ Request::is( 'admin') ? 'class="active"' : '' }} ><a href="/admin">Admin Panel</a></li>
           			@endif
           			<li class="navbar-text">Welcome, {{ Auth::user()->username ?: '' }}!</li>
                 <li>{{ HTML::link('/logout', 'Log Out') }}</li>
 	            @endif
-						{{-- <li><a href="{{ URL::to('logout') }}">Log Out</a></li> --}}
-			      {{-- <li><a href="/registration">Registration</a></li> --}}
 			    </ul>
 				</div>
  	  </div>
 	</nav>
-		<div class="container">
-		@if (Session::has('flash_message'))
-		{{ Session::get('flash_message') }}
-		@endif
-		</div>
+		
  
