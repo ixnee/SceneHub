@@ -11,15 +11,11 @@ class Profile extends \Eloquent {
 		return $this->hasOne('City');
 	}
 
-	public function state() {
-		return $this->hasOne('State');
-	}
-
 	public function user() {
 		return $this->belongsTo('User');
 	}
 
-	public function genres() {
+	public function genre() {
 		return $this->belongsToMany('Genre', 'genre_profile', 'profile_id', 'genre_id');
 	}
 

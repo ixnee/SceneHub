@@ -13,6 +13,16 @@
 
 Route::get('/', function()
 {
+	// $venue = new Venue;
+	// $venue->name = 'The Millroom';
+	// $venue->phone = '8282252585';
+	// $venue->address = '66 Asheland Ave';
+	// $venue->zip = '28801';
+	// $venue->description = 'The Mill Room is an event space located at 66 Asheland Ave, in the heart of downtown Asheville, North Carolina. Brought to you by your friends at Asheville Brewing Company!';
+	// $venue->city_id = '1';
+	// $venue->save();
+
+
 	return View::make('pages.home');
 });
 
@@ -71,17 +81,6 @@ Route::get('/create-profile', array(
 ));
 
 Route::post('/create-profile', 'ProfileController@doCreateProfile');
-
-// Route::get('/your-profile', array(
-// 	'before' => 'auth',
-// 	function()
-// 	{
-// 		$user_id = Auth::user()->id;
-// 		$user = User::find($user_id);
-// 		$profile = $user->profile;
-// 		return View::make('pages.your-profile', array('user' => $user, 'profile' => $profile));
-// 	}
-// ));
 
 Route::get('/your-profile', array(
 	'before' => 'auth',

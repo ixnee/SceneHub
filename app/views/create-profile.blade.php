@@ -68,13 +68,6 @@
 	  </div>
 
 		<div class="form-group">
-			<div class="col-sm-4">
-	  			{{ Form::label('state_id', 'State') }}
-          {{ Form::select('state_id', $state_lists, '', array('class' => 'form-control')) }}
-      </div>
-	  </div>
-
-		<div class="form-group">
         <div class="col-sm-4">
             {{ Form::submit('Create Profile', array('class' => 'btn btn-info')) }}
         </div>

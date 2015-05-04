@@ -7,9 +7,8 @@ class Venue extends \Eloquent {
 		return $this->hasOne('City');
 	}
 
-	public function state() {
-		return $this->hasOne('State');
+	public function event() {
+		return $this->belongsTo('Event');
 	}
-
 
 }

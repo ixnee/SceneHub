@@ -40,7 +40,6 @@
             {{ Form::submit('Register', array('class' => 'btn btn-info')) }}
         </div>
     </div>
-    <div class="g-recaptcha" data-sitekey="6LcFUgUTAAAAAKjjNVdIGDXWgnMcIOPuicYtCUbX"></div>
 
       {{ Form::close() }}
 

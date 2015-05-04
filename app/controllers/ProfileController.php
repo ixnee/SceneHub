@@ -9,8 +9,7 @@ class ProfileController extends BaseController {
 		$role_lists = Role::lists('name', 'id');
 		$genre_lists = Genre::lists('name', 'id');
 		$city_lists = City::lists('name', 'id');
-		$state_lists = State::lists('name', 'id');
-		return View::make('create-profile', array('username' => $username, 'user_id' => $user_id, 'role_lists' => $role_lists, 'genre_lists' => $genre_lists, 'city_lists' => $city_lists, 'state_lists' => $state_lists));
+		return View::make('create-profile', array('username' => $username, 'user_id' => $user_id, 'role_lists' => $role_lists, 'genre_lists' => $genre_lists, 'city_lists' => $city_lists));
 	}
 
 	public function doCreateProfile()
@@ -28,7 +27,6 @@ class ProfileController extends BaseController {
 		$profile->bio = Input::get('bio');
 		$profile->birthdate = $birthdate;
 		$profile->city_id = Input::get('city_id');
-		$profile->state_id = Input::get('state_id');
 		$profile->save();
 		return Redirect::to('/')->withFlashMessage('Thanks for creating your Profile!');
 	}

@@ -44,10 +44,6 @@
 		    	<td>City:</td>
 		    	<td></td>
 		    </tr>
-		    <tr class="info">
-		    	<td>State:</td>
-		    	<td></td>
-		    </tr>
 	   </table>
    </div> 
 

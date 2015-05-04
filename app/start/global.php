@@ -51,6 +51,11 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+App::missing(function($exception)
+{
+	return App::make("ErrorController")->callAction("missing", []);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
