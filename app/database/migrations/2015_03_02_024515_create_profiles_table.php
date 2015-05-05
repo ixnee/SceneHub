@@ -22,7 +22,6 @@ class CreateProfilesTable extends Migration {
 			$table->text('bio')->nullable();
 			$table->date('birthdate')->nullable();
 			$table->integer('city_id')->unsigned();
-			$table->integer('state_id')->unsigned();
 			$table->timestamps();
 		});
 	}

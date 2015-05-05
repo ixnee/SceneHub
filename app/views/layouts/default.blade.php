@@ -4,7 +4,7 @@
   
   @include('includes.header')
   
-  <div class="jumbotron">
+  <div class="well">
     <div class="container">
       @if (Session::has('flash_message'))
       {{ Session::get('flash_message') }}

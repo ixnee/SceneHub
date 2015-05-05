@@ -21,7 +21,6 @@ class CreateVenuesTable extends Migration {
 			$table->char('zip', 5)->index();
 			$table->text('description')->nullable();
 			$table->integer('city_id')->unsigned();
-			$table->integer('state_id')->unsigned();
 			$table->timestamps();
 		});
 	}

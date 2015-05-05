@@ -17,13 +17,11 @@ class AddForeignKeys extends Migration {
 			$table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 			$table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade')->onDelete('restrict');
 			$table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('restrict');
-			$table->foreign('state_id')->references('id')->on('states')->onUpdate('cascade')->onDelete('restrict');
 		});
 
 		Schema::table('venues', function($table)
 		{
 			$table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('restrict');
-			$table->foreign('state_id')->references('id')->on('states')->onUpdate('cascade')->onDelete('restrict');
 		});
 
 		Schema::table('events', function($table)
@@ -44,12 +42,10 @@ class AddForeignKeys extends Migration {
 			$table->dropForeign('profiles_user_id_foreign');
 			$table->dropForeign('profiles_role_id_foreign');
 			$table->dropForeign('profiles_city_id_foreign');
-			$table->dropForeign('profiles_state_id_foreign');
 		});
 		Schema::table('venues', function($table)
 		{
 			$table->dropForeign('venues_city_id_foreign');
-			$table->dropForeign('venues_state_id_foreign');
 		});
 		Schema::table('events', function($table)
 		{

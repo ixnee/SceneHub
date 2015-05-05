@@ -6,7 +6,7 @@
 
 @section('content')
 		<h1>{{ $username }}, Create Your Profile</h1>
-		{{ Form::open(array('url' => 'create-profile', 'class' => 'form-horizontal' ))  }}
+		{{ Form::open(array('url' => 'create-profile', 'class' => 'form-horizontal', 'id' => 'create-profile'))  }}
 		{{ Form::hidden('user_id', $user_id) }}
 
 		<div class="form-group">

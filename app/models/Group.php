@@ -3,7 +3,7 @@
 class Group extends \Eloquent {
 	protected $fillable = ['name', 'description'];
 
-	public function event() {
-		return $this->belongsTo('Event');
+	public function show() {
+		return $this->belongsTo('Show');
 	}
 }

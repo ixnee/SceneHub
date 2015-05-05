@@ -3,7 +3,7 @@
 class Role extends \Eloquent {
 	protected $fillable = ['name'];
 
-	public function user() {
+	public function profile() {
 		return $this->belongsTo('Profile');
 	}
 }

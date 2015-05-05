@@ -9,12 +9,23 @@
     <h1>Sign Up!</h1>
       <h2>New User Registration</h2>
 
+      @if ( $errors->count() > 0 )
+        <div class="alert alert-danger" role="alert">
+          <p>Please correct the following:</p>
+            <ul>
+              @foreach( $errors->all() as $message )
+                <li>{{ $message }}</li>
+              @endforeach
+            </ul>
+        </div>
+    @endif
+
       {{ Form::open(array('url' => 'register', 'class' => 'form-horizontal', 'id' => 'register' )) }}
 
     <div class="form-group">
             {{ Form::label('username', 'Username', array('class' => 'sr-only')) }}
         <div class="col-sm-4">
-            {{ Form::text('username', '', array('class' => 'form-control', 'placeholder' => 'Username')) }}
+            {{ Form::text('username', '', array('class' => 'form-control', 'placeholder' => 'Username', 'autofocus' => 'autofocus')) }}
         </div>
     </div>
     <div class="form-group">

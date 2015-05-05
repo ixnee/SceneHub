@@ -17,7 +17,6 @@ class ProfileController extends BaseController {
 
 		$birthdate_unformatted = Input::get('birthdate');
 		$birthdate = Carbon::createFromFormat('m/d/Y', $birthdate_unformatted);
-
 		$profile = new Profile;
 		$profile->user_id = Input::get('user_id');
 		$profile->role_id = Input::get('role_id');
