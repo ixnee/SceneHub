@@ -10,19 +10,10 @@
     <h1>Log In</h1>
       {{ Form::open(array('url' => 'login', 'class' => 'form-horizontal', 'id' => 'login' )) }}
 
-    @if (Session::get('loginError'))
-      <div class="alert alert-danger">{{ Session::get('loginError') }}</div>
-    @endif
-
-      <p>
-        {{ $errors->first('username') }}
-        {{ $errors->first('password') }}
-      </p>
-       
         <div class="form-group"> 
             {{ Form::label('username', 'Username', array('class' => 'sr-only')) }}
           <div class="col-sm-4">
-            {{ Form::text('username', '', array('class' => 'form-control', 'placeholder' => 'Username')) }}
+            {{ Form::text('username', '', array('class' => 'form-control', 'placeholder' => 'Username', 'autofocus' => 'autofocus')) }}
           </div>
         </div>
         <div class="form-group">  

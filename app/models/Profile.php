@@ -19,5 +19,16 @@ class Profile extends \Eloquent {
 		return $this->belongsToMany('Genre', 'genre_profile', 'profile_id', 'genre_id');
 	}
 
+	public static function validate($input) {
+		$rules = array(
+			'first' 			=> 'Required|Min:2|Max:30|Alpha',
+			'last'  			=> 'Required|Min:2|Max:30|Alpha',
+			'phonefield'  => 'phone:US',
+			'captcha' 		=> array('required', 'captcha')
+		);
+
+		return Validator::make($input, $rules);	
+	}
+
 }
 

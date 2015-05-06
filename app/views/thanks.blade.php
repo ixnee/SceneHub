@@ -5,12 +5,7 @@
 @stop
 
 @section('content')
-
-<article id="mainContent">
     <h1>You Signed Up!</h1>
-    <article class="post">
       <h2>Thanks for registering</h2>
-      <p>You've registered {{ $username }}.</p>
-</article>
-  </article>
+      <p>You've registered {{ $username }}. {{ HTML::link('/login', 'Log In', array('class' => 'text-success')) }}</p>
  @stop

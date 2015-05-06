@@ -5,10 +5,11 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"fzaninotto/faker": "1.2.*@dev",
+		"fzaninotto/faker": "1.5.*@dev",
 		"twitter/bootstrap": "*",
 		"patricktalmadge/bootstrapper": "~5",
-		"google/recaptcha": "~1.1"
+		"propaganistas/laravel-phone": "~1.2",
+		"mews/captcha": "dev-master-l4"
 	},
 	"require-dev": {
 	"way/generators": "~2.0"
@@ -39,5 +40,11 @@
 	"config": {
 		"preferred-install": "dist"
 	},
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mauris/captcha"
+        }
+    ],
 	"minimum-stability": "dev"
 }

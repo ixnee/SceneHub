@@ -2,6 +2,10 @@ body {
   background: url("../images/noisy_net.png");
 }
 
+li {
+  list-style-type: none;
+}
+
 #masthead {
   background-color: #000;
   margin-top: -60px;
@@ -19,11 +23,11 @@ body {
 }
 
 #masthead h1 {
-  margin: 60px 0 0 150px;
+  margin: 60px 0 0 140px;
 }
 
 #masthead h4 {
-  margin: 0 0 -50px 150px;
+  margin: 0 0 -50px 140px;
 }
 
 #hold {

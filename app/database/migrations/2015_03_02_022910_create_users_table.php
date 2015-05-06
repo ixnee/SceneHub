@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration {
 			$table->string('email', 120)->unique();
 			$table->string('password', 64);
 			$table->tinyInteger('level')->index()->default(1);
-			$table->date('date');
+			$table->dateTime('date_registered')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->rememberToken();
 			$table->timestamps();
 		});

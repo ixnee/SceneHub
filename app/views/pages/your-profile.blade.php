@@ -14,7 +14,7 @@
 		    </tr> 
 		    <tr class="info">
 		    	<td>Role:</td>
-		    	<td>{{ $profile->role_id }}</td>
+		    	<td>{{ $role->name }}</td>
 		    </tr>
 		    <tr class="info">
 		    	<td>Email Address:</td>
@@ -30,7 +30,7 @@
 		    </tr>
 		    <tr class="info">
 		    	<td>Phone Number:</td>
-		    	<td>{{ $profile->phone }}</td>
+		    	<td>{{ $phone_formatted }}</td>
 		    </tr>
 		    <tr class="info">
 		    	<td>Bio:</td>
@@ -42,7 +42,7 @@
 		    </tr>
 		    <tr class="info">
 		    	<td>City:</td>
-		    	<td></td>
+		    	<td>{{ $city->name }}</td>
 		    </tr>
 	   </table>
    </div> 

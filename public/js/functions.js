@@ -155,6 +155,14 @@ $('document').ready(function(){
 						message: 'Your last name must consist of letters only'
 					}
 				}
+			},
+			phone: {
+				validators: {
+					phone: {
+						country: 'US',
+						message: 'This phone number is not valid'
+					}
+				}
 			}	
 		}
 	});

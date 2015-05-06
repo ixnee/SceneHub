@@ -7,15 +7,6 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-/*
-	public static $rules = array(
-		'username'=>'required|alpha|min:2',
-		'email'=>'required|email|unique:users',
-		'password'=>'required|alpha_num|between:6,12|confirmed',
-		'password_confirmation'=>'required|alpha_num|between:6,12'
-	);
-*/
-
 	use UserTrait, RemindableTrait;
 
 	protected $fillable = ['username', 'email'];
@@ -42,7 +33,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		$rules = array(
 			'username' => 'Required|Min:3|Max:30|AlphaNum|Unique:users',
 			'email'		 => 'Required|Between:3,64|Email|Unique:users',
-			'password' => 'Required|Min:6'
+			'password' => 'Required|Min:6',
+			'captcha'  => array('required', 'captcha')
 		);
 
 		return Validator::make($input, $rules);	

@@ -13,6 +13,12 @@
 
 Route::get('/', function()
 {
+
+	// $genre = new Genre;
+	// $genre->name = 'Techno';
+
+	// $genre->save();
+
 		// $venue = new Venue;
 		// $venue->name = 'The Underground at O\'Henry\'s';
 		// $venue->city_id = '1';
@@ -24,27 +30,12 @@ Route::get('/', function()
 	// $show->venue_id = '1';
 	// $show->save();
 
-
 	return View::make('pages.home');
+	
 });
 
 Route::get('/register', 'RegisterController@showRegister');
-Route::post('/register', function() {
-	$v = User::validate(Input::all());
-	if ($v->passes()) {
-			$user = new User;
-			$user->username = Input::get('username');
-			$user->password = Hash::make(Input::get('password'));
-			$user->email = Input::get('email');
-			$user->save();
-			$username = Input::get('username');
-			return View::make('thanks')->with('username', $username);
-	}
-	else {
-		return Redirect::to('/register')->withErrors($v->getMessageBag());
-	}
-});
-// Route::post('/register', 'RegisterController@doRegister');
+Route::post('/register', 'RegisterController@doRegister');
 
 Route::get('/login', function()
 {
@@ -70,17 +61,21 @@ Route::get('/logout', function()
 
 Route::get('/people', function()
 {
-	return View::make('pages.people');
+	$users = User::all();
+	$profiles = Profile::all();
+	return View::make('pages.people')->with('profiles', $profiles);
 });
 
 Route::get('/events', function()
 {
-	return View::make('pages.events');
+	$events = Show::all();
+	return View::make('pages.events')->with('events', $events);
 });
 
 Route::get('/groups', function()
 {
-	return View::make('pages.groups');
+	$groups = Group::all();
+	return View::make('pages.groups')->with('groups', $groups);
 });
 
 

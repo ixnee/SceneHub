@@ -123,7 +123,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		'Bootstrapper\BootstrapperServiceProvider',
-
+		'Propaganistas\LaravelPhone\LaravelPhoneServiceProvider',
+		'Mews\Captcha\CaptchaServiceProvider',
 	),
 
 	/*
@@ -191,6 +192,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Carbon' 					=> 'Carbon\Carbon',
+		'Captcha'					=> 'Mews\Captcha\Facades\Captcha',
 	),
 
 );

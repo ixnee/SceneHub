@@ -54,6 +54,7 @@ return array(
 	),
 	"not_in"               => "The selected :attribute is invalid.",
 	"numeric"              => "The :attribute must be a number.",
+	"phone" 							 => "The :attribute field contains an invalid value.",
 	"regex"                => "The :attribute format is invalid.",
 	"required"             => "The :attribute field is required.",
 	"required_if"          => "The :attribute field is required when :other is :value.",
