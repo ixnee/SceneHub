@@ -14,22 +14,6 @@
 Route::get('/', function()
 {
 
-	// $genre = new Genre;
-	// $genre->name = 'Techno';
-
-	// $genre->save();
-
-		// $venue = new Venue;
-		// $venue->name = 'The Underground at O\'Henry\'s';
-		// $venue->city_id = '1';
-		// $venue->save();
-
-	// $show = new Show;
-	// $show->name = 'AVL Dance Pary Co-Op';
-	// $show->group_id = '3';
-	// $show->venue_id = '1';
-	// $show->save();
-
 	return View::make('pages.home');
 	
 });
@@ -59,12 +43,12 @@ Route::get('/logout', function()
 	return View::make('logout');
 });
 
-Route::get('/people', function()
-{
-	$users = User::all();
-	$profiles = Profile::all();
-	return View::make('pages.people')->with('profiles', $profiles);
-});
+Route::get('/people', array(
+	'before' => 'auth',
+	'uses' => 'ProfileController@showAllProfiles'
+));
+
+Route::post('/people', 'ProfileController@filterProfiles');
 
 Route::get('/events', function()
 {
@@ -98,15 +82,19 @@ Route::get('/your-profile', array(
 	'before' => 'auth',
 	'uses' => 'ProfileController@showYourProfile'
 ));
-
 Route::get('/admin', array(
 	'before' => 'level',
-	function()
-	{
-		$users = User::all();
-		return View::make('pages.admin')->with('users', $users);
-	}
-));
+	'uses' => 'UsersController@showUsers'
+	));
+
+// Route::get('/admin', array(
+// 	'before' => 'level',
+// 	function()
+// 	{
+// 		$users = User::all();
+// 		return View::make('pages.admin')->with('users', $users);
+// 	}
+// ));
 
 /*
 

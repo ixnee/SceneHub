@@ -9,7 +9,8 @@
 		"twitter/bootstrap": "*",
 		"patricktalmadge/bootstrapper": "~5",
 		"propaganistas/laravel-phone": "~1.2",
-		"mews/captcha": "dev-master-l4"
+		"mews/captcha": "dev-master-l4",
+		"mohsen/captcha": "dev-master"
 	},
 	"require-dev": {
 	"way/generators": "~2.0"

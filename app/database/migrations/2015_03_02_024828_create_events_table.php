@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration {
 			$table->string('name', 90)->index();
 			$table->dateTime('start')->index();
 			$table->dateTime('end');
+			$table->integer('group_id')->unsigned();
 			$table->text('description')->nullable();
 			$table->integer('venue_id')->unsigned();
 			$table->timestamps();

@@ -25,6 +25,7 @@
         <div class="form-group">
           <div class="col-sm-4">
             {{ Form::submit('Log In', array('class' => 'btn btn-info')) }}
+            Or {{ HTML::link('/register', 'Register', array('class' => 'text-info')) }}
           </div>
         </div>
 

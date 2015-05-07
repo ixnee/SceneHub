@@ -27,6 +27,7 @@ class AddForeignKeys extends Migration {
 		Schema::table('events', function($table)
 		{
 			$table->foreign('venue_id')->references('id')->on('venues')->onUpdate('cascade')->onDelete('restrict');
+			$table->foreign('group_id')->references('id')->on('venues')->onUpdate('cascade')->onDelete('restrict');
 		});
 }
 
@@ -50,6 +51,7 @@ class AddForeignKeys extends Migration {
 		Schema::table('events', function($table)
 		{
 			$table->dropForeign('events_venue_id_foreign');
+			$table->dropForeign('events_group_id_foreign');
 		});
 	}
 }

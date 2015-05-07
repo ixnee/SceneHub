@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-		<h1>{{ $username }}, Create Your Profile</h1>
+		<h1>{{ ucfirst($username) }}, Create Your Profile</h1>
 
 		 @if ( $errors->count() > 0 )
       <div class="alert alert-danger" role="alert">

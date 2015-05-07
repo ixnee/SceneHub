@@ -4,6 +4,6 @@ class Role extends \Eloquent {
 	protected $fillable = ['name'];
 
 	public function profile() {
-		return $this->belongsTo('Profile');
+		return $this->belongsTo('Profile', 'role_id');
 	}
 }

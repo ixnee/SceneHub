@@ -26,7 +26,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $hidden = array('password', 'remember_token');
 
 	public function profile() {
-		return $this->hasOne('Profile');
+		return $this->hasOne('Profile', 'user_id');
 	}
 
 	public static function validate($input) {
@@ -34,7 +34,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 			'username' => 'Required|Min:3|Max:30|AlphaNum|Unique:users',
 			'email'		 => 'Required|Between:3,64|Email|Unique:users',
 			'password' => 'Required|Min:6',
-			'captcha'  => array('required', 'captcha')
+			'captcha'  => 'Required|captcha'
 		);
 
 		return Validator::make($input, $rules);	

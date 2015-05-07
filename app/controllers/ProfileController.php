@@ -7,9 +7,8 @@ class ProfileController extends BaseController {
 		$username = Auth::user()->username;
 		$user_id = Auth::user()->id;
 		$role_lists = Role::lists('name', 'id');
-		$genre_lists = Genre::lists('name', 'id');
 		$city_lists = City::lists('name', 'id');
-		return View::make('create-profile', array('username' => $username, 'user_id' => $user_id, 'role_lists' => $role_lists, 'genre_lists' => $genre_lists, 'city_lists' => $city_lists));
+		return View::make('create-profile', array('username' => $username, 'user_id' => $user_id, 'role_lists' => $role_lists, 'city_lists' => $city_lists));
 	}
 
 	public function doCreateProfile()
@@ -49,9 +48,9 @@ class ProfileController extends BaseController {
 		$username = Auth::user()->username;
 		$user = User::find($user_id);
 		$profile = User::find($user_id)->profile;
+		if(isset($profile)) {
 		$city_id = $profile->city_id;
 		$role_id = $profile->role_id;
-		if(isset($profile)) {
 			$num = $profile->phone;
 		  $phone_formatted = "(".substr($num,0,3).") ".substr($num,3,3)."-".substr($num,6);
 			$city = City::find($city_id);
@@ -65,9 +64,168 @@ class ProfileController extends BaseController {
 	public function showAllProfiles()
 	{
 		$users = User::all();
-		foreach($users as $user)
-		{
-			
+		$profiles = DB::table('profiles')
+			->join('users', 'user_id', "=", 'users.id')
+			->join('roles', 'role_id', "=", 'roles.id')
+			->join('cities', 'city_id', "=", 'cities.id')
+			->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+			->orderby('cities.name', 'asc')
+			->get();
+		return View::make('pages.people', array('profiles' => $profiles));
+	}
+
+	public function filterProfiles()
+	{
+		$roleList = Input::get('roleList');
+		if(isset($roleList)) {
+			if ($roleList == 'all')
+					$profiles = DB::table('profiles')
+					->join('users', 'user_id', "=", 'users.id')
+					->join('roles', 'role_id', "=", 'roles.id')
+					->join('cities', 'city_id', "=", 'cities.id')
+					->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+					->orderby('cities.name', 'asc')
+					->get();
+			elseif ($roleList == 'dj')
+					$profiles = DB::table('profiles')
+					->join('users', 'user_id', "=", 'users.id')
+					->join('roles', 'role_id', "=", 'roles.id')
+					->join('cities', 'city_id', "=", 'cities.id')
+					->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+					->where('role_id', "=", 1)
+					->orderby('cities.name', 'asc')
+					->get();
+			elseif ($roleList == 'promoter')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('role_id', "=", 2)
+				->orderby('cities.name', 'asc')
+				->get();
+			elseif ($roleList == 'producer')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('role_id', "=", 3)
+				->orderby('cities.name', 'asc')
+				->get();
+			elseif ($roleList == 'dancer')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('role_id', "=", 4)
+				->orderby('cities.name', 'asc')
+				->get();
+			elseif ($roleList == 'vendor')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('role_id', "=", 5)
+				->orderby('cities.name', 'asc')
+				->get();
+			elseif ($roleList == 'artist')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('role_id', "=", 6)
+				->orderby('cities.name', 'asc')
+				->get();
+			elseif ($roleList == 'fan')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('role_id', "=", 7)
+				->orderby('cities.name', 'asc')
+				->get();
 		}
+		$cityList = Input::get('cityList');
+		if(isset($cityList)) {
+			if ($cityList == 'all')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->orderby('roles.name', 'asc')
+				->get();
+			elseif ($cityList == 'asheville')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('city_id', "=", 1)
+				->orderby('roles.name', 'asc')
+				->get();
+			elseif ($cityList == 'black_mountain')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('city_id', "=", 2)
+				->orderby('roles.name', 'asc')
+				->get();
+			elseif ($cityList == 'hickory')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('city_id', "=", 3)
+				->orderby('roles.name', 'asc')
+				->get();
+			elseif ($cityList == 'charlotte')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('city_id', "=", 4)
+				->orderby('roles.name', 'asc')
+				->get();
+			elseif ($cityList == 'morganton')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('city_id', "=", 5)
+				->orderby('roles.name', 'asc')
+				->get();
+			elseif ($cityList == 'waynesville')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('city_id', "=", 6)
+				->orderby('roles.name', 'asc')
+				->get();
+			elseif ($cityList == 'hendersonville')
+				$profiles = DB::table('profiles')
+				->join('users', 'user_id', "=", 'users.id')
+				->join('roles', 'role_id', "=", 'roles.id')
+				->join('cities', 'city_id', "=", 'cities.id')
+				->select('*', 'users.username as username', 'roles.name as role', 'cities.name as city')
+				->where('city_id', "=", 7)
+				->orderby('roles.name', 'asc')
+				->get();
+		}
+
+		return View::make('pages.people', array('profiles' => $profiles));
+
 	}
 }

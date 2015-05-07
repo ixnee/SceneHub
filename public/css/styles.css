@@ -35,10 +35,6 @@ li {
 }
 
 #logo-img {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 99;
   height: 120px;
   width: 120px;
 }
@@ -47,6 +43,18 @@ li {
   text-align: right;
 }
 
+p.navbar-text {
+  color: #5bc0de !important;
+}
+
+.row {
+  margin-bottom: 15px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+}
     
 /* Sticky footer styles
 -------------------------------------------------- */

@@ -16,9 +16,9 @@ class CreateVenuesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name', 60)->index();
+			$table->string('website', 90);
 			$table->char('phone', 10);
 			$table->string('address', 120);
-			$table->char('zip', 5)->index();
 			$table->text('description')->nullable();
 			$table->integer('city_id')->unsigned();
 			$table->timestamps();

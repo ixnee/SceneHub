@@ -11,11 +11,11 @@ class City extends \Eloquent {
 	protected $table = 'cities';
 
 	public function venue() {
-		return $this->belongsTo('Venue');
+		return $this->belongsTo('Venue', 'city_id');
 	}
 
 	public function profile() {
-		return $this->belongsTo('Profile');
+		return $this->belongsTo('Profile', 'city_id');
 	}
 
 }
