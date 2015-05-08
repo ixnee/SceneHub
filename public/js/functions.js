@@ -1,19 +1,37 @@
+/*
+
+Author:						Lisa Balogh
+Revision Date:		May 7, 2014
+File Name:				functions.js
+Description:			Stores and calls JavaScript functions
+									to enhance site functionality
+
+*/
+
+// document ready function
 $('document').ready(function(){
+	$('.carousel').carousel({
+        interval: 5000,
+        pause: "false"
+  });
 	$('#datepicker').datepicker({
 		startView: 2,
 		defaultViewDate: { year: 1980 }
 	});
 	validation();
-});
+}); // end document ready function
 
-	function validation() {
+// jQuery input validation function
+function validation() {
+
+	// login validation
 	$('#login').formValidation({
 		framework: 'bootstrap',
-    icon: {
-        valid: 'glyphicon glyphicon-ok',
-        invalid: 'glyphicon glyphicon-remove',
-        validating: 'glyphicon glyphicon-refresh'
-    },
+	  icon: {
+	      valid: 'glyphicon glyphicon-ok',
+	      invalid: 'glyphicon glyphicon-remove',
+	      validating: 'glyphicon glyphicon-refresh'
+	  },
 		message:'This value is not valid',
 		fields: {
 			username: {
@@ -41,15 +59,16 @@ $('document').ready(function(){
 				}
 			}
 		}
-	});
+	}); // end login form validation
 
+	// registration form validation
 	$('#register').formValidation({
 		framework: 'bootstrap',
-    icon: {
-        valid: 'glyphicon glyphicon-ok',
-        invalid: 'glyphicon glyphicon-remove',
-        validating: 'glyphicon glyphicon-refresh'
-    },
+	  icon: {
+	      valid: 'glyphicon glyphicon-ok',
+	      invalid: 'glyphicon glyphicon-remove',
+	      validating: 'glyphicon glyphicon-refresh'
+	  },
 		message:'This value is not valid',
 		fields: {
 			username: {
@@ -111,15 +130,16 @@ $('document').ready(function(){
 				}
 			}
 		}
-	});
+	}); // end registration form validation
 
+	// create-profile form validation
 	$('#create-profile').formValidation({
 		framework: 'bootstrap',
-    icon: {
-        valid: 'glyphicon glyphicon-ok',
-        invalid: 'glyphicon glyphicon-remove',
-        validating: 'glyphicon glyphicon-refresh'
-    },
+	  icon: {
+	      valid: 'glyphicon glyphicon-ok',
+	      invalid: 'glyphicon glyphicon-remove',
+	      validating: 'glyphicon glyphicon-refresh'
+	  },
 			message:'This value is not valid',
 			fields: {
 				first: {
@@ -165,8 +185,8 @@ $('document').ready(function(){
 				}
 			}	
 		}
-	});
+	}); // end create-profile form validation
 
-}
+} // end jQuery input validation function
 
 

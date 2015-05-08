@@ -1,3 +1,12 @@
+{{--
+
+ Author:					Lisa Balogh
+ Revision Date:		May 7, 2014
+ File Name:				admin.blade.php
+ Description:			Renders the admin page content
+
+--}}
+
 @extends('layouts.default')
 
 @section('title')

@@ -1,4 +1,11 @@
 <?php
+
+/*
+ * Author:					Lisa Balogh
+ * Revision Date:		May 7, 2014
+ * File Name:				UserProfileTableSeeder.php
+ * Description:			Table seeder for users table and profiles table, using the Faker Factory seed library
+ */
  
 class UserProfileTableSeeder extends Seeder {
  

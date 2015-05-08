@@ -1,6 +1,14 @@
 <?php
 
 /*
+ * Author:					Lisa Balogh
+ * Revision Date:		May 7, 2014
+ * File Name:				filters.php
+ * Description:			Handles actions that require user authentication and approval,
+ *									as well as events that happen before or after controller actions
+ */
+
+/*
 |--------------------------------------------------------------------------
 | Application & Route Filters
 |--------------------------------------------------------------------------

@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * Author:					Lisa Balogh
+ * Revision Date:		May 7, 2014
+ * File Name:				User.php
+ * Description:			Defines the methods and relationships for the users table
+ */
+
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
@@ -11,18 +18,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	protected $fillable = ['username', 'email'];
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
 	protected $table = 'users';
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
 	protected $hidden = array('password', 'remember_token');
 
 	public function profile() {

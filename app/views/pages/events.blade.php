@@ -1,3 +1,12 @@
+{{--
+
+ Author:					Lisa Balogh
+ Revision Date:		May 7, 2014
+ File Name:				events.blade.php
+ Description:			Renders the events page content
+
+--}}
+
 @extends('layouts.default')
 
 @section('title')

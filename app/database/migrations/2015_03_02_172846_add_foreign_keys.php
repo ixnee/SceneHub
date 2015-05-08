@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * Author:					Lisa Balogh
+ * Revision Date:		May 7, 2014
+ * File Name:				add_foreign_keys.php
+ * Description:			Adds or removes foreign key constraints for all existing tables
+ */
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 

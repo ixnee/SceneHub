@@ -1,7 +1,15 @@
 <?php
 
+/*
+ * Author:					Lisa Balogh
+ * Revision Date:		May 7, 2014
+ * File Name:				RegisterController.php
+ * Description:			Controller that handles actions related to the User model
+ */
+
 class UsersController extends \BaseController {
 
+// queries the database and serves the admin page with all user data
 	public function showUsers() {
 		$users = User::all();
 		$users = DB::table('profiles')

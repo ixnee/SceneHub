@@ -1,3 +1,12 @@
+{{--
+
+ Author:          Lisa Balogh
+ Revision Date:   May 7, 2014
+ File Name:       create-profile.blade.php
+ Description:     Renders the create-profile page content
+
+--}}
+
 @extends('layouts.default')
 
 @section('title')
@@ -25,7 +34,7 @@
 		<div class="form-group">
       <div class="col-xs-12 col-sm-6 col-lg-8">
           {{ Form::label('first', 'First Name', array('class' => 'sr-only')) }}
-          {{ Form::text('first', '', array('class' => 'form-control', 'placeholder' => 'First Name')) }}
+          {{ Form::text('first', '', array('class' => 'form-control', 'placeholder' => 'First Name', 'autofocus' => 'autofocus')) }}
       </div>
 	  </div>
 

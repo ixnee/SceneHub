@@ -1,3 +1,12 @@
+{{--
+
+ Author:					Lisa Balogh
+ Revision Date:		May 7, 2014
+ File Name:				people.blade.php
+ Description:			Renders the people page content
+
+--}}
+
 @extends('layouts.default')
 
 @section('title')

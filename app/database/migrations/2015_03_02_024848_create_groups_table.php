@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * Author:					Lisa Balogh
+ * Revision Date:		May 7, 2014
+ * File Name:				create_groups_table.php
+ * Description:			Creates or drops the groups table
+ */
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 

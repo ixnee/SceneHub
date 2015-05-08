@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * Author:					Lisa Balogh
+ * Revision Date:		May 7, 2014
+ * File Name:				create_users_table.php
+ * Description:			Creates or drops the users table
+ */
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 

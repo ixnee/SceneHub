@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * Author:					Lisa Balogh
+ * Revision Date:		May 7, 2014
+ * File Name:				Profile.php
+ * Description:			Defines the methods and relationships for the profiles table
+ */
+
 class Profile extends \Eloquent {
 	protected $fillable = ['role_id', 'first', 'last', 'phone', 'bio', 'birthdate', 'city_id'];
 

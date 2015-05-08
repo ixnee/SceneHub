@@ -1,3 +1,12 @@
+{{--
+
+ Author:					Lisa Balogh
+ Revision Date:		May 7, 2014
+ File Name:				head.blade.php
+ Description:			Contains the html for the head section
+
+--}}
+
 <!DOCTYPE html>
 <html>
 <head>

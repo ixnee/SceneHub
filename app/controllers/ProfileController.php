@@ -1,7 +1,15 @@
 <?php
 
+/*
+ * Author:					Lisa Balogh
+ * Revision Date:		May 7, 2014
+ * File Name:				ProfileController.php
+ * Description:			Controller that handles actions related to the Profile model
+ */
+
 class ProfileController extends BaseController {
 
+// queries the database and serves the create-profile page
 	public function showCreateProfile()
 	{
 		$username = Auth::user()->username;
@@ -11,6 +19,9 @@ class ProfileController extends BaseController {
 		return View::make('create-profile', array('username' => $username, 'user_id' => $user_id, 'role_lists' => $role_lists, 'city_lists' => $city_lists));
 	}
 
+// receives the data from the create-profile form, validates the data, and either 
+// writes the values to the database then serves the thanks page
+// or redirects back to the create-profile page with validation errors
 	public function doCreateProfile()
 	{
 		$v = Profile::validate(Input::all());
@@ -36,12 +47,13 @@ class ProfileController extends BaseController {
 			$profile->city_id = Input::get('city_id');
 			$profile->save();
 
-			return Redirect::to('/your-profile')->withFlashMessage('Thanks for creating your Profile!');
+			return Redirect::to('/your-profile');
 		} else {
 			return Redirect::to('/create-profile')->withErrors($v->getMessageBag());
 		}
 	}
 
+// receives the user id, queries the database, and serves the your-profile page
 	public function showYourProfile() 
 	{
 		$user_id = Auth::user()->id;
@@ -61,6 +73,7 @@ class ProfileController extends BaseController {
 			}
 	}
 
+// queries the database and serves the people page with user profile data
 	public function showAllProfiles()
 	{
 		$users = User::all();
@@ -74,6 +87,7 @@ class ProfileController extends BaseController {
 		return View::make('pages.people', array('profiles' => $profiles));
 	}
 
+// receives data from the filter list, queries the database, and serves the people page with the requested filter
 	public function filterProfiles()
 	{
 		$roleList = Input::get('roleList');

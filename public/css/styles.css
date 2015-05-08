@@ -1,4 +1,15 @@
-body {
+/*
+
+Author:          Lisa Balogh
+Revision Date:   May 7, 2014
+File Name:       styles.css
+Description:     Provides global syle rules, bootstrap style modifications,
+                 and responsive design modifications
+
+*/
+
+html, body {
+  height: 100%;
   background: url("../images/noisy_net.png");
 }
 
@@ -6,10 +17,39 @@ li {
   list-style-type: none;
 }
 
+#logo-img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 99;
+  height: 120px;
+  width: 120px;
+}
+
+#welcome {
+  padding-left: 130px;
+}
+
+p.navbar-text {
+  color: #5bc0de !important;
+}
+
+.navbar-collapse {
+  text-align: right;
+}
+
 #masthead {
   background-color: #000;
   margin-top: -60px;
   width: 100%;
+}
+
+#masthead h1 {
+  margin: 60px 0 0 150px;
+}
+
+#masthead h4 {
+  margin: 0 0 -50px 150px;
 }
 
 #header {
@@ -22,29 +62,12 @@ li {
   width: 100%;
 }
 
-#masthead h1 {
-  margin: 60px 0 0 140px;
+#carousel-home img {
+  width: 100%;
 }
 
-#masthead h4 {
-  margin: 0 0 -50px 140px;
-}
-
-#hold {
-  height: 100%;
-}
-
-#logo-img {
-  height: 120px;
-  width: 120px;
-}
-
-.navbar-collapse {
-  text-align: right;
-}
-
-p.navbar-text {
-  color: #5bc0de !important;
+#carousel-home h1 {
+  text-shadow: 0px 0px 2px #3A3F44;
 }
 
 .row {
@@ -53,41 +76,59 @@ p.navbar-text {
 
 .footer {
   text-align: center;
-  padding: 20px;
-}
-    
-/* Sticky footer styles
--------------------------------------------------- */
-
-html,
-body {
-  height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
+  padding: 20px 0 15px;
 }
 
-/* Wrapper for page content to push down footer */
-#wrap {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  /* Negative indent footer by its height */
-  margin: 0 auto -60px;
-}
-
-/* Set the fixed height of the footer here */
-#push,
-#footer {
+#push, #footer {
   height: 60px;
 }
 
-/* Lastly, apply responsive CSS fixes as necessary */
-@media (max-width: 767px) {
-  #footer {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
+@media only screen and ( max-width: 479px ) {
+
+  #logo-img {
+    height: 90px;
+    width: 90px;
+  }
+
+  #welcome {
+    padding-left: 110px;
+  }
+
+  #masthead {
+    margin-top: -80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }  
+
+  #masthead h1 {
+    margin: 80px 0 0 15px;
+  }
+
+  #masthead h4 {
+    margin: 0 0 -50px 15px;
+  }
+
+  #carousel-home h1 {
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+  #carousel-home ol {
+    display: none;
+  }
+
+  #carousel-home p {
+    margin-bottom: -20px;
+  }
+
+  .carousel-caption .btn {
+    width: 160px;
   }
 }
 
-    
+@media only screen and ( max-width: 270px ) {
+  #carousel-home p {
+    margin-bottom: -35px;
+    margin-left: -15%;
+  }
+}
